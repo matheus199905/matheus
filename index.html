@@ -1,22 +1,125 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Martins</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Copa do Mundo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #009739, #FFD700);
+    }
+
+    /* Barra de navegação */
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Logo */
+    .logo {
+      color: #FFD700;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Menu */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 3px;
+      background: #FFD700;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #FFD700;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #FFD700;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+  <nav>
+    <div class="logo">⚽ Copa 2026</div>
+    <div class="menu-toggle">☰</div>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Partidas</a></li>
+      <li><a href="#">Seleções</a></li>
+      <li><a href="#">Estádios</a></li>
+      <li><a href="#">História</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
 
-        </header>
-        <section>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('nav ul');
 
-        </section>
-        <footer>
-            <p>Matheus Martins</p>
-        </footer>
-
-    </div>
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
